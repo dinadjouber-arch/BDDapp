@@ -11,7 +11,13 @@ import model.MoyenPaiement;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.sql.Connection;
 import java.util.List;
+
+import BDD.SQLConnexion;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class DepensePanel extends JPanel {
 
@@ -289,13 +295,23 @@ public class DepensePanel extends JPanel {
 
             }
 
-        } catch (Exception ex) {
+        } catch (NumberFormatException e) {
 
             JOptionPane.showMessageDialog(this,
-                    "Vérifiez les informations saisies.");
+                    "Le montant est invalide.");
 
+        } catch (java.time.format.DateTimeParseException e) {
+
+            JOptionPane.showMessageDialog(this,
+                    "La date doit être au format AAAA-MM-JJ.");
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Une erreur est survenue : " + e.getMessage());
+
+            e.printStackTrace();
         }
-
     }
 
 
