@@ -7,6 +7,7 @@ public class Main {
 
         SQLConnexion c=new SQLConnexion();
         c.connexion();
+        SQLConnexion.initialiser();
 
         new FenetreAccueil();
     }

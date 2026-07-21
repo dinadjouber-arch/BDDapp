@@ -11,9 +11,8 @@ import java.util.List;
 
 public class DepenseRequetes {
 
-    // ==========================
+
     // Ajouter une dépense
-    // ==========================
 
     public boolean ajouterDepense(Depense depense) {
 
@@ -48,9 +47,8 @@ public class DepenseRequetes {
     }
 
 
-    // ==========================
+
     // Modifier une dépense
-    // ==========================
 
     public boolean modifierDepense(Depense depense) {
 
@@ -87,9 +85,8 @@ public class DepenseRequetes {
 
     }
 
-    // ==========================
     // Supprimer une dépense
-    // ==========================
+
 
     public boolean supprimerDepense(int idDepense) {
 
@@ -113,9 +110,9 @@ public class DepenseRequetes {
 
 
 
-    // ==========================
+
     // Récupérer toutes les dépenses
-    // ==========================
+
 
     public List<Depense> getToutesLesDepenses() {
 
@@ -185,9 +182,8 @@ public class DepenseRequetes {
 
     }
 
-    // ==========================
+
     // Obtenir le total des dépenses
-    // ==========================
 
     public double getTotalDepenses() {
 
