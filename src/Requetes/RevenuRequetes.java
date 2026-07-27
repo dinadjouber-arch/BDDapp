@@ -5,6 +5,8 @@ import BDD.SQLConnexion;
 import model.Revenu;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,7 +94,7 @@ public class RevenuRequetes {
 
                 revenu.setIdRevenu(rs.getInt("id_revenu"));
                 revenu.setMontant(rs.getDouble("montant"));
-                revenu.setDateRevenu(rs.getDate("date_revenu").toLocalDate());
+                revenu.setDateRevenu(lireDate(rs, "date_revenu"));
                 revenu.setDescription(rs.getString("description"));
 
                 liste.add(revenu);
@@ -123,7 +125,7 @@ public class RevenuRequetes {
 
                 revenu.setIdRevenu(rs.getInt("id_revenu"));
                 revenu.setMontant(rs.getDouble("montant"));
-                revenu.setDateRevenu(rs.getDate("date_revenu").toLocalDate());
+                revenu.setDateRevenu(lireDate(rs, "date_revenu"));
                 revenu.setDescription(rs.getString("description"));
 
                 return revenu;
@@ -153,5 +155,20 @@ public class RevenuRequetes {
         }
 
         return 0;
+    }
+
+    private LocalDate lireDate(ResultSet rs, String colonne) throws SQLException {
+        String date = rs.getString(colonne);
+
+        if (date == null || date.isBlank()) {
+            return null;
+        }
+
+        try {
+            return LocalDate.parse(date);
+        } catch (DateTimeParseException e) {
+            System.err.println("Date invalide dans la colonne " + colonne + " : " + date);
+            return null;
+        }
     }
 }
