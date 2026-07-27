@@ -1,20 +1,15 @@
 import BDD.SQLConnexion;
 import display.FenetreAccueil;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+public class Main{
+public static void main(String[] args) throws SQLException {
 
-
-public class Main {
-    public static void main(String[] args) throws SQLException {
 
 
         SQLConnexion c=new SQLConnexion();
         c.connexion();
         SQLConnexion.initialiser();
-
         new FenetreAccueil();
 
 
