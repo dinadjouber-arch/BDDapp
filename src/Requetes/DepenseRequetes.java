@@ -26,7 +26,7 @@ public class DepenseRequetes {
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setDouble(1, depense.getMontant());
-            ps.setDate(2, Date.valueOf(depense.getDateDepense()));
+            ps.setString(2, depense.getDateDepense().toString());
             ps.setString(3, depense.getDescription());
 
             ps.setInt(4,
@@ -66,7 +66,7 @@ public class DepenseRequetes {
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setDouble(1, depense.getMontant());
-            ps.setDate(2, Date.valueOf(depense.getDateDepense()));
+            ps.setString(2, depense.getDateDepense().toString());
             ps.setString(3, depense.getDescription());
 
             ps.setInt(4, depense.getCategorie().getIdCategorie());
@@ -86,7 +86,6 @@ public class DepenseRequetes {
     }
 
     // Supprimer une dépense
-
 
     public boolean supprimerDepense(int idDepense) {
 
@@ -109,10 +108,7 @@ public class DepenseRequetes {
     }
 
 
-
-
     // Récupérer toutes les dépenses
-
 
     public List<Depense> getToutesLesDepenses() {
 
@@ -162,7 +158,7 @@ public class DepenseRequetes {
                 depense.setIdDepense(rs.getInt("id_depense"));
                 depense.setMontant(rs.getDouble("montant"));
                 depense.setDateDepense(
-                        rs.getDate("date_depense").toLocalDate());
+                        java.time.LocalDate.parse(rs.getString("date_depense")));
                 depense.setDescription(rs.getString("description"));
 
                 depense.setCategorie(categorie);
@@ -210,5 +206,4 @@ public class DepenseRequetes {
         return total;
     }
 
-
-    }
+}

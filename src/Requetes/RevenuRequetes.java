@@ -19,7 +19,7 @@ public class RevenuRequetes {
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setDouble(1, revenu.getMontant());
-            ps.setDate(2, Date.valueOf(revenu.getDateRevenu()));
+            ps.setString(2, revenu.getDateRevenu().toString());
             ps.setString(3, revenu.getDescription());
 
             ps.executeUpdate();
@@ -41,7 +41,7 @@ public class RevenuRequetes {
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setDouble(1, revenu.getMontant());
-            ps.setDate(2, Date.valueOf(revenu.getDateRevenu()));
+            ps.setString(2, revenu.getDateRevenu().toString());
             ps.setString(3, revenu.getDescription());
             ps.setInt(4, revenu.getIdRevenu());
 
