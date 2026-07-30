@@ -2,7 +2,20 @@
 
 <img src="images/accueil.png" alt="Application Preview" width="850">
 
-A desktop application developed with **Java Swing** that allows users to manage a personal budget and track expenses through an intuitive graphical interface. All data is stored in an embedded **SQLite** database, making the application **portable** and eliminating the need for installing or configuring a database server.
+A desktop application developed with **Java Swing** that allows users to manage a personal budget and track expenses through an intuitive graphical interface. All data is stored in an embedded **SQLite** database, making the application portable and eliminating the need to install or configure a database server.
+
+---
+
+## Download
+
+A ready-to-use Windows version of the application is available in the **Releases** section of this repository.
+
+1. Download **BDDapp.zip** from **Releases**.
+2. Extract the ZIP archive.
+3. Open the **BDDapp** folder.
+4. Launch **BDDapp.exe**.
+
+> **Important:** Keep all files inside the **BDDapp** folder together, as they are required for the application to function correctly.
 
 ---
 
@@ -18,7 +31,7 @@ A desktop application developed with **Java Swing** that allows users to manage 
 * Display expense statistics.
 * Automatically calculate the remaining budget.
 * Display a warning when the budget becomes negative.
-* Automatically save all data in an SQLite database.
+* Automatically save all data in an embedded SQLite database.
 
 ---
 
@@ -34,7 +47,7 @@ A desktop application developed with **Java Swing** that allows users to manage 
 
 # Database
 
-The application uses an **SQLite** database (`gestion_depenses.db`) containing the following tables:
+The application uses an embedded **SQLite** database (`gestion_depenses.db`) containing the following tables:
 
 * `budget`
 * `depense`
@@ -42,7 +55,7 @@ The application uses an **SQLite** database (`gestion_depenses.db`) containing t
 * `moyen_paiement`
 * `revenu`
 
-The database is embedded with the application, allowing it to run without any additional database configuration.
+Since the database is embedded, no additional setup or configuration is required.
 
 ---
 
@@ -112,9 +125,10 @@ The database is embedded with the application, allowing it to run without any ad
 
 * No MySQL installation required.
 * No database server configuration.
-* Embedded local database.
-* Easily portable between computers.
-* Simplified deployment and setup.
+* Embedded SQLite database.
+* Portable and easy to use.
+* Simplified deployment.
+* Stores all data locally.
 
 ---
 
@@ -128,21 +142,12 @@ The database is embedded with the application, allowing it to run without any ad
 
 ---
 
-# Installation
-
-## From Source
+# Running from Source
 
 1. Clone the repository.
 2. Open the project in IntelliJ IDEA.
 3. Make sure the SQLite JDBC driver is included.
-4. Run the application.
-
-## Portable Version
-
-1. Download the latest release from the **Releases** section.
-2. Extract the ZIP archive.
-3. Launch the `.exe` or `.jar` file.
-4. The SQLite database is automatically created if necessary, and all data is stored locally.
+4. Build and run the application.
 
 ---
 
